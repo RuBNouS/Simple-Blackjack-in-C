@@ -1,3 +1,4 @@
+//BMW
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -119,28 +120,39 @@ void jogarBlackjack() {
             imprimirCarta(maoJogador[i]); 
         }
         printf("\n");
+        printf("\n");
 
         //calculo do max 21
         if (pontosJogador > 21) {
-            printf("\nEstourou. Passaste dos 21.\n");
+            printf("Estourou. Passaste dos 21.\n");
             break; //sai da função (do jogo)e volta ao menu. TALVEZ MUDAR E METER OPÇÃO PARA CONTNUAR A JOGAR ENVES DE CONTINUAR A JOGAR. (VAI DAR AO MESMO)
         }
         else if (pontosJogador == 21) {
-            printf("\nConseguiste 21.\n");
+            printf("Conseguiste 21.\n");
             break; //passa para turno do dealer
         }
 
         //pedir escolha ao jogador
-        printf("\n========== O que queres fazer?    1 - Pedir carta (Hit)   2 - Parar (Stand) ===== Escolha: ");
-        scanf("%d", &escolha);// ler escolha
+        do{
+            printf("========== O que queres fazer?    1 - Pedir carta (Hit)   2 - Parar (Stand) ===== Escolha: ");
+            if (scanf("%d", &escolha) != 1) {
+                printf("Entrada inválida! Por favor, introduza um número (1 ou 2).\n");
+			    while (getchar() != '\n'); //limpa o buffer do teclado
+                escolha = 0;
+                continue;
+            }
+		    switch (escolha) {
+		    case 1:
+                maoJogador[cartasJogador++] = pedirCarta();
+                break;
+            case 2:
+			    break;
+            default:
+                printf("Entrada inválida! Por favor, introduza um número (1 ou 2).\n");
+                break;
+        }
+		} while (escolha != 1 && escolha != 2);
 
-        //se escolher 1(pedir carta adiciona carta) 
-        if (escolha == 1) {
-            maoJogador[cartasJogador++] = pedirCarta();
-        }
-        else {
-            break;
-        }
     }
 
     //turno do dealer
