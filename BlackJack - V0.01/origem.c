@@ -54,7 +54,8 @@ void imprimirCarta(Carta c) {
 }
 
 //calcular os pontos da mão 
-//TALVEZ ADICIONAR NO MENU "DIFICULDADE" QUE TIRA O CALCULO AUTOMATICO DE PONTOS, OU SÓ TIRAR A PARTE DE IMPRIMIR (MAS DEIXAR NO MODO NORMAL PARA PESSOAS COM INCAPACIDADES, OU SÓ DAR A OPÇÃO)
+//TALVEZ ADICIONAR NO MENU "DIFICULDADE" QUE TIRA O CALCULO AUTOMATICO DE PONTOS, OU SÓ TIRAR A PARTE DE IMPRIMIR 
+// (MAS DEIXAR NO MODO de acessibilidade, OU SÓ DAR A OPÇÃO)
 int calcularPontos(Carta mao[], int numCartas) {
     int pontos = 0;
     int ases = 0;
@@ -127,7 +128,7 @@ void jogarBlackjack() {
         //calculo do max 21
         if (pontosJogador > 21) {
             printf("Estourou. Passaste dos 21.\n");
-            break; //sai da função (do jogo)e volta ao menu. TALVEZ MUDAR E METER OPÇÃO PARA CONTNUAR A JOGAR ENVES DE CONTINUAR A JOGAR. (VAI DAR AO MESMO)
+            break; 
         }
         else if (pontosJogador == 21) {
             printf("Conseguiste 21.\n");
@@ -223,18 +224,18 @@ int main() {
     SetConsoleOutputCP(CP_UTF8); //muda a janela para UTF-8 para conseguir meter acentos e etc...
 
     int opcao;
-    int modoIncapacitados = 1; //ligado-1, desligado-0. TEM DE IR LIGADO POR DEFAULT
+    int modoAcessibilidade = 1; //ligado-1, desligado-0. TEM DE IR LIGADO POR DEFAULT
 
     do {
         printf("\n===== Blackjack ======================================\n");
         printf("1 - Jogar\n");
         printf("2 - Ler Regras\n");
-        //-----ligar/desligar modo para incapacitados (talvez remover isto e fica sempre ligado)
-        if (modoIncapacitados == 1) {
-            printf("3 - Desligar modo para incapacitados (Atual: LIGADO)\n");
+        //-----ligar/desligar modo de acessibilidade (talvez remover isto e fica sempre ligado)
+        if (modoAcessibilidade == 1) {
+            printf("3 - Desligar modo de acessibilidade (Atual: LIGADO)\n");
         }
         else {
-            printf("3 - Ligar modo para incapacitados (Atual: DESLIGADO)\n");
+            printf("3 - Ligar modo de acessibilidade (Atual: DESLIGADO)\n");
         }
         printf("4 - Sair\n");
         printf("Escolha uma opção: ");
@@ -256,13 +257,13 @@ int main() {
             break;
         case 3:
             printf("\nDe momento apenas mostra ligado/desligado.");
-            if (modoIncapacitados == 1) {
-                modoIncapacitados = 0; //desligar
-                printf("\n[AVISO] Modo para incapacitados foi DESLIGADO.\n");
+            if (modoAcessibilidade == 1) {
+                modoAcessibilidade = 0; //desligar
+                printf("\n[AVISO] Modo de Acessibilidade foi DESLIGADO.\n");
             }
             else {
-                modoIncapacitados = 1; //ligar
-                printf("\n[AVISO] Modo para incapacitados foi LIGADO.\n");
+                modoAcessibilidade = 1; //ligar
+                printf("\n[AVISO] Modo de Acessibilidade foi LIGADO.\n");
             }
             break;
         case 4:
