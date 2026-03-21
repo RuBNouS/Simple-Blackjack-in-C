@@ -103,7 +103,10 @@ void jogarBlackjack() {
     maoDealer[cartasDealer++] = pedirCarta();
 
     //turno do jogador
-    while (1) {
+
+	int turnoJogador = 1; //1 para continuar, 0 para parar
+
+    while (turnoJogador) {
         int pontosJogador = calcularPontos(maoJogador, cartasJogador); //calcular pontos
 
         int pontosVisiveisDealer = calcularPontos(&maoDealer[0], 1); //calcular os pontos apenas da carta visível do Dealer
@@ -145,12 +148,12 @@ void jogarBlackjack() {
                 maoJogador[cartasJogador++] = pedirCarta();
                 break;
             case 2:
-			    break;
+				turnoJogador = 0; //sair do ciclo do jogador
             default:
                 printf("Entrada inválida! Por favor, introduza um número (1 ou 2).\n");
                 break;
-        }
-		} while (escolha != 1 && escolha != 2);
+            }
+        }while (escolha != 1 && escolha != 2);
 
     }
 
