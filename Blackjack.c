@@ -230,14 +230,7 @@ int main() {
         printf("\n===== Blackjack ======================================\n");
         printf("1 - Jogar\n");
         printf("2 - Ler Regras\n");
-        //-----ligar/desligar modo de acessibilidade (talvez remover isto e fica sempre ligado)
-        if (modoAcessibilidade == 1) {
-            printf("3 - Desligar modo de acessibilidade (Atual: LIGADO)\n");
-        }
-        else {
-            printf("3 - Ligar modo de acessibilidade (Atual: DESLIGADO)\n");
-        }
-        printf("4 - Sair\n");
+        printf("3 - Sair\n");
         printf("Escolha uma opção: ");
 
 		//apenas aceitar valores validos e lidar com entradas inválidas
@@ -256,23 +249,12 @@ int main() {
             mostrarRegras();
             break;
         case 3:
-            printf("\nDe momento apenas mostra ligado/desligado.");
-            if (modoAcessibilidade == 1) {
-                modoAcessibilidade = 0; //desligar
-                printf("\n[AVISO] Modo de Acessibilidade foi DESLIGADO.\n");
-            }
-            else {
-                modoAcessibilidade = 1; //ligar
-                printf("\n[AVISO] Modo de Acessibilidade foi LIGADO.\n");
-            }
-            break;
-        case 4:
-            printf("\nA fechar programa\nA sair do jogo\nOuve Alice In Chains - Would?\n");
+            printf("\nA fechar programa\nOuve: Alice In Chains - Would?\n");
             break;
         default:
-            printf("\nEntrada inválida! Por favor, introduza um número entre 1 e 4.\n");
+            printf("\nEntrada inválida! Por favor, introduza um número entre 1 e 33.\n");
         }
-    } while (opcao != 4);
+    } while (opcao != 3);
 
     return 0;
 }
