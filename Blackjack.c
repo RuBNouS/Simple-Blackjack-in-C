@@ -40,7 +40,7 @@ void baralhar() {
         baralho[i] = baralho[r];
         baralho[r] = temp;
     }
-    topoBaralho = 0; //novo baralho sempre - mais simples lol
+    topoBaralho = 0;
 }
 
 //meter as cartas jogadas para no baralkho
