@@ -54,8 +54,6 @@ void imprimirCarta(Carta c) {
 }
 
 //calcular os pontos da mão 
-//TALVEZ ADICIONAR NO MENU "DIFICULDADE" QUE TIRA O CALCULO AUTOMATICO DE PONTOS, OU SÓ TIRAR A PARTE DE IMPRIMIR 
-// (MAS DEIXAR NO MODO de acessibilidade, OU SÓ DAR A OPÇÃO)
 int calcularPontos(Carta mao[], int numCartas) {
     int pontos = 0;
     int ases = 0;
